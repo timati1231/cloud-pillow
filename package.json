@@ -1,0 +1,36 @@
+{
+  "name": "cloud-pillow",
+  "version": "1.0.0",
+  "description": "Modern minimalist e-commerce store for premium pillows - Cloud Pillow",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "server": "npx http-server",
+    "dev": "npx http-server -c-1",
+    "build": "echo 'No build step required for this project'"
+  },
+  "keywords": [
+    "pillows",
+    "ecommerce",
+    "premium",
+    "minimalist",
+    "sleep",
+    "comfort"
+  ],
+  "author": "Cloud Pillow Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timati1231/cloud-pillow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timati1231/cloud-pillow/issues"
+  },
+  "homepage": "https://github.com/timati1231/cloud-pillow#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
