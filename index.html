@@ -3,444 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Pillow - Премиальные подушки для комфортного сна</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Cloud Pillow - Премиальные подушки для идеального сна">
+    <meta name="keywords" content="подушки, премиум, комфорт, сон, здоровье">
+    <title>Cloud Pillow - Премиальные подушки для идеального сна</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>">
 </head>
 <body>
     <!-- Навигация -->
     <nav class="navbar">
         <div class="container">
-            <div class="navbar__wrapper">
-                <div class="logo">
-                    <i class="fas fa-cloud"></i>
-                    <span>Cloud Pillow</span>
-                </div>
+            <div class="nav-wrapper">
+                <div class="logo">☁️ Cloud Pillow</div>
                 <ul class="nav-menu">
-                    <li><a href="#catalog">Каталог</a></li>
-                    <li><a href="#features">О компании</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#products">Товары</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
-                <div class="nav-icons">
-                    <button class="search-btn" onclick="toggleSearch()">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <button class="cart-btn" onclick="toggleCart()">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">0</span>
-                    </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Поисковая строка -->
-    <div class="search-bar" id="searchBar">
+    <!-- Главный баннер -->
+    <section id="home" class="hero">
         <div class="container">
-            <input type="text" placeholder="Поиск подушек..." id="searchInput">
-        </div>
-    </div>
-
-    <!-- Корзина -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>Корзина</h2>
-            <button onclick="toggleCart()" class="close-btn">✕</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <p class="empty-cart">Корзина пуста</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Итого:</span>
-                <span id="cartTotal">0 ₸</span>
-            </div>
-            <button class="btn btn-primary" onclick="goToCheckout()">Оформить заказ</button>
-            <button class="btn btn-secondary" onclick="toggleCart()">Продолжить покупки</button>
-        </div>
-    </div>
-
-    <!-- Главный экран -->
-    <section class="hero">
-        <div class="hero__content">
-            <h1 class="hero__title">Подушка, на которой хочется спать</h1>
-            <p class="hero__subtitle">Комфортный сон начинается с правильной подушки</p>
-            <div class="hero__buttons">
-                <button class="btn btn-primary" onclick="scrollToSelector('#catalog')">Выбрать подушку</button>
-                <button class="btn btn-secondary" onclick="scrollToSelector('#catalog')">Посмотреть каталог</button>
-            </div>
-        </div>
-        <div class="hero__image">
-            <img src="images/hero-pillow.svg" alt="Cloud Pillow">
-        </div>
-    </section>
-
-    <!-- Помощник выбора -->
-    <section class="helper">
-        <div class="container">
-            <h2>Как выбрать подушку?</h2>
-            <p class="helper__subtitle">Ответьте на несколько простых вопросов</p>
-            
-            <div class="helper__questions">
-                <div class="helper__question">
-                    <p>В какой позе вы спите?</p>
-                    <div class="helper__options">
-                        <label class="radio-option">
-                            <input type="radio" name="position" value="side">
-                            <span>На боку</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="position" value="back">
-                            <span>На спине</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="position" value="stomach">
-                            <span>На животе</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="helper__question">
-                    <p>Какую подушку вы предпочитаете?</p>
-                    <div class="helper__options">
-                        <label class="radio-option">
-                            <input type="radio" name="firmness" value="soft">
-                            <span>Мягкую</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="firmness" value="medium">
-                            <span>Среднюю</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="firmness" value="hard">
-                            <span>Упругую</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="helper__question">
-                    <p>Есть ли дискомфорт в шее после сна?</p>
-                    <div class="helper__options">
-                        <label class="radio-option">
-                            <input type="radio" name="pain" value="yes">
-                            <span>Да, часто</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="pain" value="sometimes">
-                            <span>Иногда</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="pain" value="no">
-                            <span>Нет</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <button class="btn btn-primary" onclick="getRecommendation()">Получить рекомендацию</button>
-            <div class="helper__result" id="helperResult"></div>
-        </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Почему Cloud Pillow?</h2>
-            <div class="features__grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Гипоаллергенные материалы</h3>
-                    <p>Безопасные натуральные материалы для всей семьи</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Доставка по Казахстану</h3>
-                    <p>Быстрая и надежная доставка в любой город</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-redo"></i>
-                    </div>
-                    <h3>30 дней на возврат</h3>
-                    <p>Не понравилась подушка? Верните без вопросов</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Гарантия качества</h3>
-                    <p>Гарантия на все изделия до 2 лет</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Премиальный контроль</h3>
-                    <p>Каждая подушка проходит проверку качества</p>
-                </div>
+            <div class="hero-content">
+                <h1>Облачный комфорт для вашего сна</h1>
+                <p>Премиальные подушки из экологичных материалов для здорового и спокойного сна</p>
+                <button class="btn btn-primary" onclick="scrollToProducts()">Смотреть каталог</button>
             </div>
         </div>
     </section>
 
-    <!-- Каталог -->
-    <section class="catalog" id="catalog">
+    <!-- Фильтры и поиск -->
+    <section class="filters-section">
         <div class="container">
-            <h2>Наш каталог</h2>
-            
-            <!-- Фильтры -->
-            <div class="filters">
-                <div class="filter-group">
-                    <label>Категория</label>
-                    <select id="categoryFilter" onchange="filterProducts()">
-                        <option value="">Все категории</option>
-                        <option value="orthopedic">Ортопедические</option>
-                        <option value="side">Для сна на боку</option>
-                        <option value="back">Для сна на спине</option>
-                        <option value="down">Пуховые</option>
-                        <option value="kids">Для детей</option>
-                        <option value="decorative">Декоративные</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Цена (₸)</label>
-                    <input type="range" id="priceFilter" min="5000" max="50000" value="50000" onchange="filterProducts()">
-                    <span id="priceValue">до 50000</span>
-                </div>
-
-                <div class="filter-group">
-                    <label>Размер</label>
-                    <select id="sizeFilter" onchange="filterProducts()">
-                        <option value="">Все размеры</option>
-                        <option value="50x50">50×50 см</option>
-                        <option value="50x70">50×70 см</option>
-                        <option value="70x70">70×70 см</option>
-                    </select>
-                </div>
-
-                <div class="filter-group">
-                    <label>Наполнитель</label>
-                    <select id="fillerFilter" onchange="filterProducts()">
-                        <option value="">Все наполнители</option>
-                        <option value="memory-foam">Memory foam</option>
-                        <option value="latex">Натуральный латекс</option>
-                        <option value="down">Пух и перо</option>
-                        <option value="bamboo">Бамбук</option>
-                    </select>
-                </div>
-
-                <button class="btn btn-secondary" onclick="resetFilters()">Сбросить фильтры</button>
+            <div class="filters-wrapper">
+                <input type="text" id="searchInput" class="search-input" placeholder="Поиск подушек...">
+                <select id="priceFilter" class="filter-select">
+                    <option value="">Все цены</option>
+                    <option value="budget">До 50€</option>
+                    <option value="medium">50€ - 100€</option>
+                    <option value="premium">От 100€</option>
+                </select>
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">Все категории</option>
+                    <option value="memory">Ортопедические</option>
+                    <option value="cooling">Охлаждающие</option>
+                    <option value="comfort">Комфортные</option>
+                </select>
             </div>
+        </div>
+    </section>
 
-            <!-- Товары -->
+    <!-- Каталог товаров -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Наши коллекции</h2>
             <div class="products-grid" id="productsGrid">
-                <!-- Товары загружаются JS -->
+                <!-- Товары будут загружены JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Почему выбирают Cloud Pillow</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Эко-материалы</h3>
+                    <p>Используем только натуральные и переработанные материалы</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">😴</div>
+                    <h3>Здоровый сон</h3>
+                    <p>Поддержка позвоночника с ортопедической поддержкой</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❄️</div>
+                    <h3>Охлаждение</h3>
+                    <p>Технология геля для регуляции температуры</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Премиум качество</h3>
+                    <p>Сертифицировано и протестировано</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставка по всей Европе за 2-3 дня</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Гарантия</h3>
+                    <p>100 ночей гарантии возврата денег</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Отзывы -->
-    <section class="reviews">
+    <section id="reviews" class="reviews">
         <div class="container">
-            <h2>Отзывы покупателей</h2>
-            <div class="reviews__grid">
+            <h2>Отзывы клиентов</h2>
+            <div class="reviews-grid">
                 <div class="review-card">
-                    <div class="review-header">
-                        <img src="images/avatar-1.svg" alt="Мария">
-                        <div>
-                            <h4>Мария Иванова</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>«Наконец-то нашла подушку, на которой сплю как младенец! Исчезла боль в шее, просыпаюсь отдохнувшей. Спасибо Cloud Pillow!»</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Лучшая подушка, которую я когда-либо использовал! Мой шею больше не болит."</p>
+                    <p class="reviewer">- Мария С.</p>
                 </div>
-
                 <div class="review-card">
-                    <div class="review-header">
-                        <img src="images/avatar-2.svg" alt="Алексей">
-                        <div>
-                            <h4>Алексей Петров</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>«Качество материалов превосходит все ожидания. Подушка не потеряла форму даже через полгода активного использования. Рекомендую!»</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Отличное качество и очень удобно. Рекомендую всем!"</p>
+                    <p class="reviewer">- Иван П.</p>
                 </div>
-
                 <div class="review-card">
-                    <div class="review-header">
-                        <img src="images/avatar-3.svg" alt="Анна">
-                        <div>
-                            <h4>Анна Смирнова</h4>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p>«Отличная доставка и прекрасный сервис. Подушка идеальна для моего сна на спине. Стало намного лучше с точки зрения поддержки шеи.»</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Я сплю намного лучше теперь. Подушка стоит каждого евро!"</p>
+                    <p class="reviewer">- Анна К.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Акция -->
-    <section class="promo">
-        <div class="promo__content">
-            <h2>Первая покупка со скидкой 20%</h2>
-            <p>Используйте промокод при оформлении заказа</p>
-            <div class="promo__code">
-                <input type="text" value="WELCOME20" readonly id="promoCode">
-                <button onclick="copyPromoCode()">Скопировать</button>
-            </div>
-            <button class="btn btn-primary btn-large" onclick="scrollToSelector('#catalog')">Получить скидку</button>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
+    <!-- Подписка на новости -->
+    <section class="newsletter">
         <div class="container">
-            <h2>Часто задаваемые вопросы</h2>
-            <div class="faq__list">
-                <div class="faq__item">
-                    <div class="faq__question" onclick="toggleFaq(this)">
-                        <h3>Как выбрать правильную высоту подушки?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Высота подушки зависит от ширины плеч и позы сна. Для сна на спине подойдет подушка высотой 10-12 см, для сна на боку — 12-15 см. Оптимальная подушка должна держать голову на одной линии с позвоночником.</p>
-                    </div>
-                </div>
-
-                <div class="faq__item">
-                    <div class="faq__question" onclick="toggleFaq(this)">
-                        <h3>Как ухаживать за подушкой?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Рекомендуем регулярно проветривать подушку на свежем воздухе. Наволочку стирайте еженедельно при температуре 40°C. Саму подушку можно стирать в щадящем режиме 1-2 раза в год или сухой чистить.</p>
-                    </div>
-                </div>
-
-                <div class="faq__item">
-                    <div class="faq__question" onclick="toggleFaq(this)">
-                        <h3>Можно ли вернуть подушку?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Да! У вас есть 30 дней на возврат или обмен. Подушка должна быть в оригинальном состоянии. Мы вернем полную стоимость или отправим замену на ваш выбор.</p>
-                    </div>
-                </div>
-
-                <div class="faq__item">
-                    <div class="faq__question" onclick="toggleFaq(this)">
-                        <h3>Сколько занимает доставка?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Доставка по Алматы и Нур-Султану — 1-2 рабочих дня. По другим городам Казахстана — 3-5 рабочих дней. Доставка бесплатна при заказе от 25 000 ₸.</p>
-                    </div>
-                </div>
-
-                <div class="faq__item">
-                    <div class="faq__question" onclick="toggleFaq(this)">
-                        <h3>Какие материалы используются?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Мы используем только натуральные и экологичные материалы: органический хлопок, натуральный латекс, гипоаллергенный пух высшего качества, бамбуковое волокно и премиальный memory foam. Все сертифицировано и безопасно.</p>
-                    </div>
-                </div>
-            </div>
+            <h2>Подпишитесь на скидки и новости</h2>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit" class="btn btn-primary">Подписаться</button>
+            </form>
         </div>
     </section>
 
     <!-- Контакты -->
-    <section class="contacts" id="contacts">
+    <section id="contact" class="contact">
         <div class="container">
             <h2>Свяжитесь с нами</h2>
-            <div class="contacts__wrapper">
-                <div class="contacts__info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Телефон</h4>
-                            <p>+7 (700) 123-45-67</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hello@cloudpillow.kz</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Адрес</h4>
-                            <p>Алматы, ул. Тулеметова, 56</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Часы работы</h4>
-                            <p>Пн-Вс: 10:00 - 22:00</p>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>📍 Адрес</h3>
+                    <p>Cloud Pillow GmbH<br>Берлин, Германия</p>
                 </div>
-
-                <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="email" placeholder="Ваш email" required>
-                    <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Отправить сообщение</button>
-                </form>
+                <div class="contact-info">
+                    <h3>📞 Телефон</h3>
+                    <p>+49 30 123 456 78</p>
+                </div>
+                <div class="contact-info">
+                    <h3>✉️ Email</h3>
+                    <p>support@cloudpillow.com</p>
+                </div>
+                <div class="contact-info">
+                    <h3>🕐 Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00<br>Сб-Вс: 10:00 - 16:00</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Подвал -->
+    <!-- Корзина (модальное окно) -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Корзина покупок</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <strong>Итого: <span id="totalPrice">0</span>€</strong>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Кнопка корзины -->
+    <div class="cart-button">
+        <button onclick="openCart()" class="cart-icon">🛒 <span id="cartCount">0</span></button>
+    </div>
+
+    <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Cloud Pillow. Все права защищены. | <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+            <p>&copy; 2026 Cloud Pillow. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">𝕏</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
